@@ -3,14 +3,14 @@
 <strong>Credit to Palo Alto Networks for providing these scripts. I just made some minor modifications to add
 timestamps to the graphs and fit my needs better.</strong>
 
-<strong>Requirements:</strong>
-Windows OS
-Python 3
-requests - pip3 install requests
-matplotlib - pip3 install matplotlib
+<strong>Requirements:</strong>  
+Windows OS  
+Python 3  
+requests - pip3 install requests  
+matplotlib - pip3 install matplotlib  
 
 Tip: Run with a read-only admin account if you just want to monitor packet buffers and not actually clear
-abusive sessions.
+abusive sessions.  
 
 <strong>Disclaimer</strong>
 This script is provided on an "as is" bases. Palo Alto Networks does not provide support or guarantee the
