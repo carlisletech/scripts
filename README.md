@@ -1,2 +1,2 @@
 # scripts
-Random scripts
+Random script repo
