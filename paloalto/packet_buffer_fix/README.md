@@ -30,12 +30,14 @@ packet buffer utilization for a specific threshold (high water mark). When the t
 identify the top sessions using more than 2% of the packet buffers and discard the sessions if they match the
 input parameters provided.  
 
+  
 Upon termination, the script will generate a log and graph file. The log file named, "packet_buffer_usage.txt"
 depicts the start and end time the script was active, as well as the packet buffer utilization at each polling
 interval. The graph file named, "packet_buffer_usage.png" shows the packet buffer utilization graphed over the
 script's running duration.  
 
-<h2>Script Parameters - Note these are commented out in my script and variables are hardcoded.</h2>  
+<h2>Script Parameters - Note these are commented out in my script and variables are hardcoded.</h2>   
+
 packet_buffer_fix.py : Main script - contains the key generation and the main function definition.  
 -p : IP-Address of the firewall to monitor  
 -t : Mitigation threshold percentage range <10%-95%>  
