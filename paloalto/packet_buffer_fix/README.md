@@ -29,27 +29,27 @@ To automate the discarding of abusive sessions, a Python script can be used to p
 packet buffer utilization for a specific threshold (high water mark). When the threshold is reached, the script will
 identify the top sessions using more than 2% of the packet buffers and discard the sessions if they match the
 input parameters provided.  
-
-  
+<br/  >
 Upon termination, the script will generate a log and graph file. The log file named, "packet_buffer_usage.txt"
 depicts the start and end time the script was active, as well as the packet buffer utilization at each polling
 interval. The graph file named, "packet_buffer_usage.png" shows the packet buffer utilization graphed over the
-script's running duration.  
+script's running duration.
 
-<h2>Script Parameters - Note these are commented out in my script and variables are hardcoded.</h2>   
+
+<h2>Script Parameters</h2> Note: these are commented out in my script and variables are hardcoded.  
 
 packet_buffer_fix.py : Main script - contains the key generation and the main function definition.  
--p : IP-Address of the firewall to monitor  
--t : Mitigation threshold percentage range <10%-95%>  
--i : Interval to analyze the packet buffer utilization <3-600 seconds>  
--a : The type of AppID session(s) to discard  
--z : The zone(s) to remove the abusive sessions from  
--l : Enables/Disables logging features  
+ -p : IP-Address of the firewall to monitor  
+ -t : Mitigation threshold percentage range <10%-95%>  
+ -i : Interval to analyze the packet buffer utilization <3-600 seconds>  
+ -a : The type of AppID session(s) to discard  
+ -z : The zone(s) to remove the abusive sessions from  
+ -l : Enables/Disables logging features  
 
 My script monitors the packet buffer utilization for a firewall with IP address 10.1.1.1, with a username admin and password of password.  
-• The script will poll and analyze the packet buffer utilization threshold every 3 seconds  
-• Any sessions identified over the monitored threshold of 80% will be considered for mitigation  
-• The script will discard abusive sessions for ANY application when the threshold is exceeded (unless using a read-only account)  
+  • The script will poll and analyze the packet buffer utilization threshold every 3 seconds  
+  • Any sessions identified over the monitored threshold of 80% will be considered for mitigation  
+  • The script will discard abusive sessions for ANY application when the threshold is exceeded (unless using a read-only account)  
 
 
 <h2>Script Termination</h2>  
