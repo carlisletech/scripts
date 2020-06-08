@@ -10,5 +10,5 @@ chmod +x centos_setup.sh
 ```
 ./centos_setup.sh
 ```
-4. Fix all the error and run it again.
+4. Fix all the errors and run it again.
 5. Repeat until it works ;-P
