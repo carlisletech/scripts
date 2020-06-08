@@ -2,7 +2,7 @@
 
 #This script will download, install, and configure Duo MFA for CentOS 7.x minimalservers
 #Official instructions here https://duo.com/docs/duounix#install-pam_duo
-#This is not complete yet. DO NOT USE
+
 
 #install requirements
 yum install -y wget openssl-devel pam-devel selinux-policy-devel
@@ -41,17 +41,24 @@ echo "autopush = yes" >> /etc/duo/pam_duo.conf
 echo "prompts = 1" >> /etc/duo/pam_duo.conf
 echo "https_timeout=30" >> /etc/duo/pam_duo.conf
 
-##This is where I need to pick up from next time I work on this
+#make copy of sshd_config an replace with Duo config added
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 sudo cp duo_sshd_config /etc/ssh/sshd_config
 
+#make copy of PAM sshd and replace with Duo config added
 sudo cp /etc/pam.d/sshd /etc/pam.d/sshd.old
 sudo cp duo_pamd_sshd /etc/pam.d/sshd
 
-sudo make -C /opt/duo_unix_latest/pam_duo semodule
-sudo make -C /opt/duo_unix_latest/pam_duo semodule-install
-
+#make copy of PAM system-auth and replace with Duo config added
 sudo cp /etc/pam.d/system-auth /etc/pam.d/system-auth.old
 sudo cp duo_pamd_system-auth /etc/pam.d/system-auth
 
+#SELinux may block PAM from contacting Duo, so adjust to allowing outgoing HTTP connections
+sudo make -C /opt/duo_unix_latest/pam_duo semodule
+sudo make -C /opt/duo_unix_latest/pam_duo semodule-install
+
+#verify semodule includes Duo
+semodule -l | grep duo
+
+#Now test and make sure auth is working.
 
