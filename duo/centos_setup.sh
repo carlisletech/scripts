@@ -60,5 +60,20 @@ sudo make -C /opt/duo_unix_latest/pam_duo semodule-install
 #verify semodule includes Duo
 semodule -l | grep duo
 
+
+#Create /etc/yum.repos.d/duosecurity.repo with the following contents:
+
+echo "[duosecurity]" > /etc/yum.repos.d/duosecurity.repo
+echo "name=Duo Security Repository" >> /etc/yum.repos.d/duosecurity.repo
+echo "baseurl=https://pkg.duosecurity.com/CentOS/\$releasever/\$basearch" >> /etc/yum.repos.d/duosecurity.repo
+echo "enabled=1" >> /etc/yum.repos.d/duosecurity.repo
+echo "gpgcheck=1" >> /etc/yum.repos.d/duosecurity.repo
+
+
+#Execute the following shell commands for Centos 6 and later:
+rpm --import https://duo.com/DUO-GPG-PUBLIC-KEY.asc
+yum install -y duo_unix
+
+
 #Now test and make sure auth is working.
 
