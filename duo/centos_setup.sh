@@ -42,16 +42,16 @@ echo "prompts = 1" >> /etc/duo/pam_duo.conf
 echo "https_timeout=30" >> /etc/duo/pam_duo.conf
 
 ##This is where I need to pick up from next time I work on this
-cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
-cp duo_sshd_config /etc/ssh/sshd_config
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+sudo cp duo_sshd_config /etc/ssh/sshd_config
 
-cp /etc/pam.d/sshd /etc/pam.d/sshd.old
-cp duo_pamd_sshd /etc/pam.d/sshd
+sudo cp /etc/pam.d/sshd /etc/pam.d/sshd.old
+sudo cp duo_pamd_sshd /etc/pam.d/sshd
 
 sudo make -C /opt/duo_unix_latest/pam_duo semodule
 sudo make -C /opt/duo_unix_latest/pam_duo semodule-install
 
-cp /etc/pam.d/system-auth /etc/pam.d/system-auth.old
-cp duo_pamd_system-auth /etc/pam.d/system-auth
+sudo cp /etc/pam.d/system-auth /etc/pam.d/system-auth.old
+sudo cp duo_pamd_system-auth /etc/pam.d/system-auth
 
 
