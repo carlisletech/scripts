@@ -1,4 +1,4 @@
-1. Clone the repo
+1. Clone the repo - git clone https://github.com/tylerx626/scripts/tree/master/duo
 2. make the .sh executable - chmod +x centos_setup.sh
 3. Run the script - ./centos_setup.sh
 4. Fix all the error and run it again.
